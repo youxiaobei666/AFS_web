@@ -17,6 +17,9 @@ const getters = {
   userAllInfo: (state) => {
     return state.user.userAllInfo
   },
+  userTotal: (state) => {
+    return state.user.userTotal
+  },
   cssVar: (state) => {
     return {
       ...state.theme.variables,

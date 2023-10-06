@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { userManageRoutes } from './privateRoutes/userManage'
 import { authManageRoutes } from './privateRoutes/authManage'
+import { animalManageRoutes} from '@/router/privateRoutes/animalManage'
 import layout from '@/layout'
 
 export const publicRoutes = [{
   path: '/',
-  redirect: '/user'
+  redirect: '/AFS'
   },
   {
     path: '/login',
@@ -16,30 +17,7 @@ export const publicRoutes = [{
     component: () => import('@/views/changePassword/index')
   },
   // 个人主页
-  {
-    path: '/profile',
-    redirect: '/profile/home',
-    component: layout,
-    name: 'profile',
-    meta: {
-      title: 'profile',
-      icon: 'profile'
-    },
-    props: {
-      default: false
-    },
-    children: [
-      {
-        path: '/AFS/aboutUs',
-        component: () => import('@/views/profile/index.vue'),
-        meta: {
-          title: 'profile_home',
-          icon: 'profile_home'
-        },
-        children: []
-      }
-    ]
-  },
+
   {
     path: '/AFS',
     component: layout,
@@ -65,6 +43,30 @@ export const publicRoutes = [{
     ]
   },
   {
+    path: '/profile',
+    redirect: '/profile/home',
+    component: layout,
+    name: 'profile',
+    meta: {
+      title: 'profile',
+      icon: 'profile'
+    },
+    props: {
+      default: false
+    },
+    children: [
+      {
+        path: '/profile/home',
+        component: () => import('@/views/profile/index.vue'),
+        meta: {
+          title: 'profile_home',
+          icon: 'profile_home'
+        },
+        children: []
+      }
+    ]
+  },
+  {
     path: '/401',
     component: () => import('@/views/error-page/401.vue')
   },
@@ -74,7 +76,7 @@ export const publicRoutes = [{
   }
 ]
 // 所有和权限相关的路由都称为私有路由，后期通过后端返回的有关权限的数组，过滤需要的的路由，用过滤好的路由，添加到公共路由表中。
-export const privateRoutes = [userManageRoutes,authManageRoutes]
+export const privateRoutes = [userManageRoutes,authManageRoutes,animalManageRoutes]
 
 const router = createRouter({
   history: createWebHashHistory(),

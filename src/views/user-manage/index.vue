@@ -1,9 +1,8 @@
 <template>
   <!-- tableall -->
   <el-table
-    :data="store.getters.userAllInfo"
+    :data="newUserData"
     stripe
-    height="600px"
     :scrollbar-always-on="true"
   >
     <el-table-column :label="$t('msg.menu_id')">
@@ -106,7 +105,17 @@
       </template>
     </el-table-column>
   </el-table>
-
+  <div style='display:flex; width: 100%; justify-content: flex-end; margin-top: 10px'>
+    <el-pagination
+      v-model:current-page="pageConfig.page"
+      v-model:page-size='pageConfig.size'
+      :page-sizes="[10, 20, 30, 50]"
+      layout="total,sizes , prev, pager, next, jumper"
+      :total='store.getters.userTotal'
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
+  </div>
   <!-- 图片框 -->
   <el-dialog
     v-model="imgVisible"
@@ -197,7 +206,7 @@
 
 <script setup>
 import store from '@/store'
-import { ref, reactive } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import { getItem } from '@/utils/storage'
 import { TOKEN, hobbyMap } from '@/constant/index'
 import formatRegion from '@/utils/formatRegion'
@@ -206,6 +215,7 @@ import { editUserInfo, deleteUser } from '@/utils/api/sys'
 import { ElMessage } from 'element-plus'
 
 // 表格数据源
+const userAllInfo = ref(store.getters.userAllInfo)
 const BigImgUrl = ref('')
 const imgVisible = ref(false)
 const editVisible = ref(false)
@@ -223,6 +233,25 @@ const toBeEditId = ref('')
 const fileList = ref([])
 const regionOptions = reactive(formatRegion(regionDatas)) // 获取地区的配置
 const hobbyCheckboxes = ref()
+
+// 全局分页配置，当配置被修改，使用 watch 监听变化从而修改表格数据源
+const pageConfig = reactive({
+  page: 1, // 默认第一页
+  size: 10 // 默认十条数据
+})
+// 分页事件
+const handleCurrentChange = (val) => {
+  pageConfig.page = val
+}
+const handleSizeChange = (val) => {
+  pageConfig.size = val
+}
+const newUserData = ref()
+// 当分页配置改变时，修改数据源
+watch(pageConfig, (newVal, oldVal) => {
+  const {page, size} = newVal
+  newUserData.value = userAllInfo.value.slice((page-1)*size,page*size)
+},{immediate: true})
 
 // 图片显示事件
 const handleShowBigImg = (index, row) => {

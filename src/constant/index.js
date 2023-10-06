@@ -34,4 +34,17 @@ export const hobbyMap = [
   }
 ]
 
+export const commonMap = [
+  {
+    label: '否',
+    value: 0,
+    id: 1,
+  },
+  {
+    label: '是',
+    value: 1,
+    id: 2,
+  },
+]
+
 export const PERMISSION_NAME_LIST = 'PERMISSION_NAME_LIST'

@@ -1,5 +1,10 @@
 const ZH = {
-
+  // 动物相关
+  animal_name: '动物昵称',
+  animal_address: '动物所在地址',
+  animal_color: '毛色',
+  animal_status: '动物是否被领养',
+  animal_img: '动物照片',
   // 表单
   form_username: '用户名',
   // 弹出框
@@ -107,7 +112,9 @@ const ZH = {
     AFS: '宠友社',
     AFS_about: '关于我们',
     profile: '个人中心',
-    profile_home: '个人主页'
+    profile_home: '个人主页',
+    animal: '动物中心',
+    animalManage: '动物管理'
   },
   toast: {
     switchLangSuccess: '切换语言成功',

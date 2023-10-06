@@ -39,9 +39,29 @@ export const editUserInfo = (data) => {
   })
 }
 
+export const editAnimal = (data) => {
+  return request({
+    url: '/animal/save',
+    method: 'POST',
+    data,
+  })
+}
+
 export const deleteUser = (params) => {
   return request({
     url: `/userinfo/delete/${params}`,
     method: 'DELETE'
+  })
+}
+export const deleteAnimal = (params) => {
+  return request({
+    url: `/animal/delete/${params}`,
+    method: 'DELETE'
+  })
+}
+
+export  const queryAnimalList = () => {
+  return request({
+    url: '/animal/query-list',
   })
 }

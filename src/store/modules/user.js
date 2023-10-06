@@ -11,6 +11,7 @@ export default {
     token: getItem(TOKEN) || '',
     userInfo: {},
     userAllInfo: [],
+    userTotal: null,
   }),
   mutations: {
     setToken(state, token) {
@@ -23,6 +24,9 @@ export default {
     setAllUserInfo(state, userAllInfo) {
       state.userAllInfo = userAllInfo
     },
+    setUserInfoTotal(state, total) {
+      state.userTotal =  total
+    }
   },
   actions: {
     login(context, userInfo) {
@@ -57,6 +61,7 @@ export default {
     async getAllUserInfo(context) {
       const res = await getAllUserInfo()
       this.commit('user/setAllUserInfo', res.userInfo)
+      this.commit('user/setUserInfoTotal', res.total)
       return res
     },
     logout() {

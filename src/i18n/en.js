@@ -1,4 +1,10 @@
 const EN = {
+  // animal
+  animal_name: 'animal name',
+  animal_address: 'animal address',
+  animal_color: 'animal color',
+  animal_status: 'animal status',
+  animal_img: 'animal picture',
   // form
   form_username: 'username',
   // dialog
@@ -105,7 +111,9 @@ const EN = {
     AFS: 'animal friend society',
     AFS_about: 'about us',
     profile: 'user home page',
-    profile_home: 'home'
+    profile_home: 'home',
+    animal: 'animal',
+    animalManage: 'animal manage'
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',
