@@ -23,6 +23,7 @@ const ZH = {
   RegPhoneVertifyCode: '输入验证码',
   getVertifyCode: '获取验证码',
   register: '注册',
+  confirm_register: '确认注册',
   forgotpass: '忘记密码',
   pleaseInputCity: '请输入城市',
   notValidLenghtCity: '请输入 2- 20 位字符的城市',
@@ -79,31 +80,13 @@ const ZH = {
   register_Retrieve: '注册&找回密码',
   login_inputpass: '请输入密码',
   login_noUsername: '请输入用户名',
+  goLogin: '去登录',
   login_falsename: '请输入3-12个字的用户名',
   login_falsepass: '只允许6位数的密码哦',
   // 系统设置
   systemset_choosebg: '选择你想要的背景颜色',
   systemset_choosebdbg: '选择你想要的边框颜色',
   systemset_choosetextbg: '选择你想要的文字颜色',
-  login: {
-    title: '用户登录',
-    loginBtn: '登录',
-    usernameRule: '用户名为必填项',
-    passwordRule: '密码不能少于6位',
-    desc: `
-    测试权限账号：<br />
-    提供三种权限账号：<br />
-    1. 超级管理员账号： super-admin <br />
-    2. 管理员账号：admin <br />
-    3. 测试可配置账号：test <br />
-    密码统一为：123456 <br />
-    <br />
-    导入用户账号：<br />
-    可使用导入的用户名登录 <br />
-    密码统一为：123456  <br />
-    <b>注意：导入用户区分中英文库！！！！</b>
-    `,
-  },
   route: {
     user: '用户设置',
     userManage: '用户管理',
@@ -114,7 +97,10 @@ const ZH = {
     profile: '个人中心',
     profile_home: '个人主页',
     animal: '动物中心',
-    animalManage: '动物管理'
+    animalManage: '动物管理',
+    message: '消息中心',
+    message_center: '消息列表',
+    friend_list: '好友列表',
   },
   toast: {
     switchLangSuccess: '切换语言成功',

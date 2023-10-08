@@ -205,7 +205,7 @@ import { getItem } from '@/utils/storage'
 import { commonMap, TOKEN } from '@/constant/index'
 import formatRegion from '@/utils/formatRegion'
 import regionDatas from '@/constant/regionData'
-import { deleteAnimal, editAnimal, queryAnimalList } from '@/utils/api/sys'
+import { deleteAnimal, editAnimal, queryAnimalList } from '@/api/sys'
 import { ElMessage } from 'element-plus'
 
 const BigImgUrl = ref('')
@@ -232,7 +232,6 @@ queryAnimalList().then(res => {
   animalTotal.value = res.total
   newUserData.value = res.animalInfo.slice((page - 1) * size, page * size) // 第一遍设置表格数据
   animalAllInfo.value = res.animalInfo
-
 })
 
 
@@ -271,17 +270,6 @@ const handleEdit = (index, row) => {
 }
 const handleDelete = (index, row) => {
   deleteAnimal(row.animal_id).then(res => {
-    if (res.success) {
-      ElMessage({
-        message: res.message,
-        type: 'success'
-      })
-    } else {
-      ElMessage({
-        message: res.message,
-        type: 'error'
-      })
-    }
   })
   editVisible.value = false
 }
@@ -318,17 +306,6 @@ const handleConfirmEdit = () => {
   editForm.animal_id = toBeEditId.value
   console.log(editForm)
   editAnimal(editForm).then((res) => {
-    if (res.success) {
-      ElMessage({
-        message: res.message,
-        type: 'success'
-      })
-    } else {
-      ElMessage({
-        message: res.message,
-        type: 'error'
-      })
-    }
   })
   editVisible.value = false
 }

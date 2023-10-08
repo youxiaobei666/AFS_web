@@ -1,6 +1,6 @@
 import axios from 'axios'
 import store from '@/store'
-import { ElMessage } from 'element-plus' // 导入 loading 蒙版
+import { ElMessage } from 'element-plus'
 const serve = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000,
@@ -25,13 +25,14 @@ serve.interceptors.request.use(
 serve.interceptors.response.use(
   (response) => {
     // 解构出响应的数据和提示信息
-    const { success, message, data } = response.data
-    //   要根据success的成功与否决定下面的操作
+    const { success, data } = response.data
+    //   要根据success的成功与否决定下面的操作和对应的提示
     if (success) {
+      ElMessage.success(data.message)
       return data
     } else {
       // 业务错误
-      ElMessage.error(message) // 提示错误消息
+      ElMessage.error(data.message) // 提示错误消息
       return Promise.reject(new Error(message))
     }
   },
@@ -41,7 +42,7 @@ serve.interceptors.response.use(
       // token 超时
       store.dispatch('user/logout')
     }
-    ElMessage.error(error.message) // 提示错误信息
+    ElMessage.error(error.data.message) // 提示错误信息
     return Promise.reject(error)
   }
 )

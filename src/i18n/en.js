@@ -23,6 +23,8 @@ const EN = {
   RegPhoneVertifyCode: 'input vertification code',
   getVertifyCode: 'Get verify code',
   register: 'Register',
+  confirm_register: 'confirm register',
+  goLogin: 'to login',
   forgotpass: 'ForgotPassword',
   pleaseInputCity: 'please input city',
   mastPhoneNumber: 'you need to input phone number',
@@ -84,25 +86,6 @@ const EN = {
   systemset_choosebg: 'choose the background color as you want',
   systemset_choosebdbg: 'choose the border background color as you want',
   systemset_choosetextbg: 'choose the text color as you want',
-  login: {
-    title: 'User Login',
-    loginBtn: 'Login',
-    usernameRule: 'Username is required',
-    passwordRule: 'Password cannot be less than 6 digits',
-    desc: `
-    Test authority account:<br />
-     Provide three kinds of authority accounts:<br />
-     1. Super administrator account: super-admin <br />
-     2. Administrator account: admin <br />
-     3. Test configurable account: test <br />
-     The uniform password is: 123456 <br />
-     <br />
-     Import user account:<br />
-     You can log in with the imported username <br />
-     The password is unified as: 123456 <br />
-     <b>Note: Import user-discriminatory Chinese and English libraries! ! ! ! </b>
-    `,
-  },
   route: {
     user: 'user setting',
     userManage: 'user manage',
@@ -113,7 +96,10 @@ const EN = {
     profile: 'user home page',
     profile_home: 'home',
     animal: 'animal',
-    animalManage: 'animal manage'
+    animalManage: 'animal manage',
+    message: 'message',
+    message_center: 'message center',
+    friend_list: 'friend list',
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',

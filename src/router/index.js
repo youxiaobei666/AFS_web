@@ -16,8 +16,6 @@ export const publicRoutes = [{
     path: '/register_forgotPass',
     component: () => import('@/views/changePassword/index')
   },
-  // 个人主页
-
   {
     path: '/AFS',
     component: layout,
@@ -65,6 +63,38 @@ export const publicRoutes = [{
         children: []
       }
     ]
+  },
+  {
+    path: '/message',
+    redirect: '/message/messageCenter', // 默认第一个
+    name: 'message',
+    component: layout,
+    meta: {
+      title: "message",
+      icon: "message",
+    },
+    props: {
+      default: false,
+    },
+    children: [
+      {
+        path: '/message/friend_list',
+        component: () => import('@/views/friend_list'),
+        meta: {
+          title: 'friend_list',
+          icon: 'friend_list'
+        },
+        children: []
+      },
+      {
+        path: '/message/messageCenter',
+        component: () => import('@/views/message-center'),
+        meta: {
+          title: 'message_center',
+          icon: 'message_center'
+        },
+        children: []
+      }]
   },
   {
     path: '/401',

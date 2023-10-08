@@ -48,3 +48,4 @@ export const commonMap = [
 ]
 
 export const PERMISSION_NAME_LIST = 'PERMISSION_NAME_LIST'
+export const USER_NAME = 'USER_NAME'

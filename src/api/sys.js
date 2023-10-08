@@ -12,12 +12,22 @@ export const login = (data) => {
   })
 }
 
+export const register = (data) => {
+  return request({
+    url: '/register',
+    method: 'POST',
+    data,
+  })
+}
+
 /**
  * 获取用户信息
  */
-export const getUserInfo = () => {
+export const getUserInfo = (data) => {
   return request({
     url: '/profile',
+    method: 'POST',
+    data
   })
 }
 
@@ -63,5 +73,6 @@ export const deleteAnimal = (params) => {
 export  const queryAnimalList = () => {
   return request({
     url: '/animal/query-list',
+    method: 'GET'
   })
 }

@@ -64,6 +64,8 @@ import { useStore } from 'vuex'
 import router from '@/router/index'
 import i18n from '@/i18n'
 import { ElLoading } from 'element-plus'
+import { setItem } from '@/utils/storage'
+import { USER_NAME } from '@/constant'
 const store = useStore()
 // 记住密码
 const ifRemember = ref(true)
@@ -137,8 +139,10 @@ const loading = ref(false)
 const handleLogin = () => {
   // 加载蒙版
   loading.value = true
+  setItem(USER_NAME, LoginCount.value.username)
   store
     .dispatch('user/login', LoginCount.value) // 把用户列表传递给 login dispatch
+
     .then(() => {
       loading.value = false
       // TODO: 登录后操作

@@ -65,7 +65,7 @@
           </el-icon>
           <span style="margin-left: 10px">
             <el-tag
-              v-for="(item, index) in scope.row.hobby.split(',')"
+              v-for="(item, index) in scope.row.hobby?.split(',')"
               :key="index"
             >
               {{ hobbyMap[item - 1]?.label || '' }}
@@ -107,13 +107,13 @@
   </el-table>
   <div style='display:flex; width: 100%; justify-content: flex-end; margin-top: 10px'>
     <el-pagination
-      v-model:current-page="pageConfig.page"
+      v-model:current-page='pageConfig.page'
       v-model:page-size='pageConfig.size'
-      :page-sizes="[10, 20, 30, 50]"
-      layout="total,sizes , prev, pager, next, jumper"
-      :total='store.getters.userTotal'
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
+      :page-sizes='[10, 20, 30, 50]'
+      layout='total,sizes , prev, pager, next, jumper'
+      :total='userInfoTotal'
+      @size-change='handleSizeChange'
+      @current-change='handleCurrentChange'
     />
   </div>
   <!-- 图片框 -->
@@ -206,16 +206,16 @@
 
 <script setup>
 import store from '@/store'
-import { ref, reactive, watch } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { getItem } from '@/utils/storage'
-import { TOKEN, hobbyMap } from '@/constant/index'
+import { hobbyMap, TOKEN } from '@/constant/index'
 import formatRegion from '@/utils/formatRegion'
 import regionDatas from '@/constant/regionData'
-import { editUserInfo, deleteUser } from '@/utils/api/sys'
-import { ElMessage } from 'element-plus'
+import { deleteUser, editUserInfo, getAllUserInfo } from '@/api/sys'
 
 // 表格数据源
-const userAllInfo = ref(store.getters.userAllInfo)
+const userAllInfo = ref([])
+const userInfoTotal = ref(null)
 const BigImgUrl = ref('')
 const imgVisible = ref(false)
 const editVisible = ref(false)
@@ -247,12 +247,20 @@ const handleSizeChange = (val) => {
   pageConfig.size = val
 }
 const newUserData = ref()
+getAllUserInfo().then(res => {
+  console.log(res)
+  const {page, size } = pageConfig
+  userInfoTotal.value = res.total
+  newUserData.value  =res.userInfo.slice((page-1)*size, page*size)
+  userAllInfo.value = res.userInfo
+})
+
+
 // 当分页配置改变时，修改数据源
 watch(pageConfig, (newVal, oldVal) => {
   const {page, size} = newVal
   newUserData.value = userAllInfo.value.slice((page-1)*size,page*size)
-},{immediate: true})
-
+,{immediate: true}})
 // 图片显示事件
 const handleShowBigImg = (index, row) => {
   imgVisible.value = true
@@ -266,17 +274,7 @@ const handleEdit = (index, row) => {
 }
 const handleDelete = (index, row) => {
   deleteUser(row.id).then(res => {
-    if (res.success) {
-      ElMessage({
-        message: res.message,
-        type: 'success',
-      })
-    } else {
-      ElMessage({
-        message: res.message,
-        type: 'error',
-      })
-    }
+
   })
   editVisible.value = false
 }
@@ -313,17 +311,7 @@ const handleConfirmEdit = () => {
   editForm.id = toBeEditId.value
   console.log(editForm)
   editUserInfo(editForm).then((res) => {
-    if (res.success) {
-      ElMessage({
-        message: res.message,
-        type: 'success',
-      })
-    } else {
-      ElMessage({
-        message: res.message,
-        type: 'error',
-      })
-    }
+
   })
   editVisible.value = false
 }

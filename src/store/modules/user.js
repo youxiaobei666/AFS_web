@@ -1,6 +1,6 @@
-import { login, getUserInfo, getAllUserInfo } from '@/utils/api/sys'
+import { login, register,getUserInfo, getAllUserInfo } from '@/api/sys'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
-import { PERMISSION_NAME_LIST, TOKEN } from '@/constant' // 取得常量
+import { PERMISSION_NAME_LIST, TOKEN, USER_NAME } from '@/constant' // 取得常量
 import router from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 import store from '@/store'
@@ -10,8 +10,7 @@ export default {
   state: () => ({
     token: getItem(TOKEN) || '',
     userInfo: {},
-    userAllInfo: [],
-    userTotal: null,
+
   }),
   mutations: {
     setToken(state, token) {
@@ -26,25 +25,28 @@ export default {
     },
     setUserInfoTotal(state, total) {
       state.userTotal =  total
-    }
+    },
+
   },
   actions: {
     login(context, userInfo) {
       //  解构出用户名和密码
       const { username, password } = userInfo
+
       //  创建一个 promise
       return new Promise((resolve, reject) => {
-        login({
+         login({
           username,
           password,
         })
-          .then((data) => {
+          .then ((data) => {
             // 储存 token
             this.commit('user/setToken', data.token)
             setItem(PERMISSION_NAME_LIST, data.permissionsNameList)
             store.dispatch('permission/filterRoutes', getItem(PERMISSION_NAME_LIST)) // 发起更新路由的操作
             // 保存登陆时间
             setTimeStamp()
+
             resolve()
           })
           .catch((err) => {
@@ -52,12 +54,30 @@ export default {
           })
       })
     },
-    async getUserInfo(context) {
-      const res = await getUserInfo()
-      setItem('avator', res.img)
-      this.commit('user/setUserInfo', res)
+    register(context, userInfo) {
+      //  解构出用户名和密码
+      const { username, password } = userInfo
+      //  创建一个 promise
+      return new Promise((resolve, reject) => {
+        register({
+          username,
+          password,
+        })
+          .then((data) => {
+            resolve()
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    },
+    async getUserInfo(context, payload) {
+      const res = await getUserInfo({ username: payload })
+      setItem('avator', res.userInfo.img)
+      this.commit('user/setUserInfo', res.userInfo)
       return res
     },
+
     async getAllUserInfo(context) {
       const res = await getAllUserInfo()
       this.commit('user/setAllUserInfo', res.userInfo)

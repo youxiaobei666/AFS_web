@@ -13,12 +13,14 @@ export default {
       newRoutes.forEach((route) => {
         router.addRoute(route)
       })
-      console.log(state.routs)
+      // 至此路由存在了。否则还是空数组
+      console.log(router.getRoutes())
     }
   },
   actions: {
     filterRoutes: (context, permissionNameList) => {
       const routes = []
+      console.log(permissionNameList)
       // 路由权限匹配
       permissionNameList.forEach(key => {
         // 权限名 与 路由的 name 匹配
