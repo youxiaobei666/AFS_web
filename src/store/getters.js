@@ -30,5 +30,6 @@ const getters = {
   sidebarOpened: (state) => state.app.sidebarOpened,
   mainColor: (state) => state.theme.mainColor,
   routerList: (state) => state.permission.routs,
+  getFriendsList: (state) => state.user.friendList
 }
 export default getters

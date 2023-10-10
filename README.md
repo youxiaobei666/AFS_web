@@ -2,6 +2,9 @@
 
 # 项目技术点总结
 
+> 待修复bug
+> 面包屑的跳转
+
 ## 1. 技术栈
 
 **vue3 + elementPlus + node express + 全栈项目**

@@ -10,7 +10,7 @@ export default {
   state: () => ({
     token: getItem(TOKEN) || '',
     userInfo: {},
-
+    friendList: []
   }),
   mutations: {
     setToken(state, token) {
@@ -26,7 +26,9 @@ export default {
     setUserInfoTotal(state, total) {
       state.userTotal =  total
     },
-
+    setFriendList(state, list) {
+      state.friendList = list
+    }
   },
   actions: {
     login(context, userInfo) {
@@ -74,6 +76,7 @@ export default {
     async getUserInfo(context, payload) {
       const res = await getUserInfo({ username: payload })
       setItem('avator', res.userInfo.img)
+      this.commit('user/setFriendList', res.userInfo.userFriendsList)
       this.commit('user/setUserInfo', res.userInfo)
       return res
     },
