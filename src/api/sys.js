@@ -76,3 +76,10 @@ export  const queryAnimalList = () => {
     method: 'GET'
   })
 }
+
+export const getChatSessionId = () => {
+  return request({
+    url: '/chat/getSessionId',
+    method: 'GET'
+  })
+}
