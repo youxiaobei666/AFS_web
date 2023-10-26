@@ -124,8 +124,8 @@ const EN = {
     lang: 'Globalization',
     guide: 'Function Guide',
     home: 'Home',
-
     logout: 'Log out',
+    front: 'back to front'
   },
 }
 

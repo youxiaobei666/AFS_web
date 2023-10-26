@@ -18,27 +18,28 @@ export const publicRoutes = [{
   },
   {
     path: '/AFS',
-    component: layout,
-    redirect: '/AFS/aboutUs',
-    name: 'AFS',
-    meta: {
-      title: 'AFS',
-      icon: 'AFS',
-    },
-    props: {
-      default: false,
-    },
-    children: [
-      {
-        path: '/AFS/aboutUs',
-        component: () => import('@/views/AFS/index.vue'),
-        meta: {
-          title: 'AFS_about',
-          icon: 'AFS',
-        },
-        children: []
-      }
-    ]
+    // component: layout,
+    component: () => import('@/views/AFS/index.vue'),
+    // redirect: '/AFS/aboutUs',
+    // name: 'AFS',
+    // meta: {
+    //   title: 'AFS',
+    //   icon: 'AFS',
+    // },
+    // props: {
+    //   default: false,
+    // },
+    // children: [
+    //   {
+    //     path: '/AFS/aboutUs',
+    //     component: () => import('@/views/AFS/index.vue'),
+    //     meta: {
+    //       title: 'AFS_about',
+    //       icon: 'AFS',
+    //     },
+    //     children: []
+    //   }
+    // ]
   },
   {
     path: '/profile',

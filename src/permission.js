@@ -5,7 +5,7 @@ import { getItem } from '@/utils/storage'
 import { PERMISSION_NAME_LIST, USER_NAME } from '@/constant'
 
 // 白名单
-const whiteList = ['/login', '/register','/register_forgotPass', 'AFS','/401', '/404']
+const whiteList = ['/login', '/register','/register_forgotPass', '/AFS','/401', '/404']
 /**
  * 路由前置守卫
  */
@@ -22,7 +22,7 @@ router.beforeEach(async (to, from, next) => {
       return Promise.reject(new Error('token 失效了'))
     }
     if (to.path === '/login') { // 有 token 就去不了登录页。
-      next('/')
+      next('/profile')
     } else { // 不是去登录页就行
       // 判断用户资料是否获取
       // 若不存在用户信息，则需要获取用户信息
@@ -41,7 +41,7 @@ router.beforeEach(async (to, from, next) => {
       // 找到了 /login(indexOf查找某元素第一次出现的索引，没有返回 -1)
       next()
     } else {
-      next('/login')
+      next('/AFS') // 去往前台
     }
   }
 })

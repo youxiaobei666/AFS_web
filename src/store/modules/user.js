@@ -1,6 +1,6 @@
 import { login, register,getUserInfo, getAllUserInfo } from '@/api/sys'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
-import { PERMISSION_NAME_LIST, TOKEN, USER_NAME } from '@/constant' // 取得常量
+import { AVATAR, ID, PERMISSION_NAME_LIST, TOKEN, USER_NAME } from '@/constant' // 取得常量
 import router from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 import store from '@/store'
@@ -75,7 +75,8 @@ export default {
     },
     async getUserInfo(context, payload) {
       const res = await getUserInfo({ username: payload })
-      setItem('avator', res.userInfo.img)
+      setItem(AVATAR, res.userInfo.img)
+      setItem(ID, res.userInfo.id)
       this.commit('user/setFriendList', res.userInfo.userFriendsList)
       this.commit('user/setUserInfo', res.userInfo)
       return res

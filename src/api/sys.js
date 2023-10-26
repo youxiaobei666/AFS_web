@@ -83,3 +83,19 @@ export const getChatSessionId = () => {
     method: 'GET'
   })
 }
+
+export const getMessageList = (data) => {
+  return request({
+    url: '/message/query-message',
+    method:'POST',
+    data
+  })
+}
+
+export const deleteMessageList = (data) => {
+  return request({
+    url: '/message/delete-message',
+    method:'POST',
+    data
+  })
+}

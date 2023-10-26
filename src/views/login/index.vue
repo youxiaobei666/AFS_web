@@ -147,7 +147,7 @@ const handleLogin = () => {
       loading.value = false
       // TODO: 登录后操作
       // 登录后操作
-      router.push('/')
+      router.push('/profile')
     })
     .catch((err) => {
       console.log(err)

@@ -47,5 +47,20 @@ export const commonMap = [
   },
 ]
 
+export const messageType = [
+  {
+    label: '用户消息',
+    value: 1,
+    id: 1,
+  },
+  {
+    label: '系统通知',
+    value: 2,
+    id: 2,
+  },
+]
+
 export const PERMISSION_NAME_LIST = 'PERMISSION_NAME_LIST'
 export const USER_NAME = 'USER_NAME'
+export const AVATAR = 'AVATAR'
+export const ID = 'ID'

@@ -39,7 +39,6 @@ defineProps({
 // 声明组件可以触发的自定义事件
 const emits = defineEmits(['contact-friend']);
 const deleteFriend = (friendId) =>{
-
  emits('delete-Friend', friendId)
 }
 const contactFriend = (friendId) => {

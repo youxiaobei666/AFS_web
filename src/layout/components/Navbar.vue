@@ -29,6 +29,9 @@
             <el-dropdown-item divided @click="logout">
               {{ $t('msg.navBar.logout') }}
             </el-dropdown-item>
+            <el-dropdown-item divided @click="toFront">
+              {{ $t('msg.navBar.front') }}
+            </el-dropdown-item>
           </el-dropdown-menu>
         </template>
       </el-dropdown>
@@ -44,11 +47,15 @@ import LangSelect from '@/components/LangSelect'
 import ThemePicker from '@/components/ThemeSelect/index'
 import Screenfull from '@/components/Screenfull'
 import HeaderSearch from '@/components/headerSearch'
+import router from '@/router'
 const store = useStore()
 
 // 退出登陆事件
 const logout = () => {
   store.dispatch('user/logout')
+}
+const toFront = () => {
+  router.push('/AFS')
 }
 </script>
 

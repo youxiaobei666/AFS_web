@@ -1,10 +1,12 @@
 <template>
   <div>
+    <el-button v-if='showType !== "list"' @click='evt => showType="list"' class='back-btn'><el-icon><ArrowLeftBold /></el-icon> 返回好友列表</el-button>
     <!--状态一：好友列表-->
-    <GoodFriendList v-if='showType === "list"' :friends='store.getters.getFriendsList' @contact-friend='goToChat'
+    <GoodFriendList v-if='showType === "list"' :friends='store.getters.getFriendsList || []' @contact-friend='goToChat'
                     @delete-Friend='deleteFriend'></GoodFriendList>
     <!--状态二：聊天详情-->
-    <chatPage v-else></chatPage>
+    <chatPage :friendId='toChatFriendId' v-else></chatPage>
+
   </div>
 </template>
 
@@ -16,7 +18,9 @@ import { ref } from 'vue'
 import { editUserInfo } from '@/api/sys'
 
 const showType = ref('list')
-const goToChat = () =>{
+const toChatFriendId = ref('')
+const goToChat = (id) =>{ // 传 id 获取好友信息
+  toChatFriendId.value = id
   showType.value  = 'chat'
 }
 const deleteFriend = (fid) => {
