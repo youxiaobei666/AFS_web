@@ -1,4 +1,6 @@
 const EN = {
+  user_auth: 'user auth',
+  menu_auth: 'change auth',
   // animal
   animal_name: 'animal name',
   animal_address: 'animal address',

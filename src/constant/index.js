@@ -34,6 +34,24 @@ export const hobbyMap = [
   }
 ]
 
+export const authChangeMap = [
+  {
+    label: '用户管理',
+    value: 'userManage',
+    id: 1,
+  },
+  {
+    label: '权限管理',
+    value: 'authManage',
+    id: 2,
+  },
+  {
+    label: '动物管理',
+    value: 'animalManage',
+    id: 3,
+  }
+]
+
 export const commonMap = [
   {
     label: '否',
@@ -64,3 +82,21 @@ export const PERMISSION_NAME_LIST = 'PERMISSION_NAME_LIST'
 export const USER_NAME = 'USER_NAME'
 export const AVATAR = 'AVATAR'
 export const ID = 'ID'
+// userManage,authManage,animalManage,message
+export const authMap = {
+  userManage: {
+    id: 1,
+    name: 'userManage',
+    label: '用户管理'
+  },
+  authManage: {
+    id: 2,
+    name: 'authManage',
+    label: '权限管理'
+  },
+  animalManage:{
+    id: 3,
+    name: 'animalManage',
+    label: '动物管理'
+  }
+}

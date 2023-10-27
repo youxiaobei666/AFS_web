@@ -1,4 +1,6 @@
 const ZH = {
+  user_auth: '用户权限',
+  menu_auth: '权限修改',
   // 动物相关
   animal_name: '动物昵称',
   animal_address: '动物所在地址',
@@ -91,6 +93,7 @@ const ZH = {
     user: '用户设置',
     userManage: '用户管理',
     auth: '权限管理',
+
     authAssign: '权限分配',
     AFS: '宠友社',
     AFS_about: '关于我们',
