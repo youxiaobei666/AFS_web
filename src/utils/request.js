@@ -1,8 +1,9 @@
 import axios from 'axios'
 import store from '@/store'
+import apis from '@/config'
 import { ElMessage } from 'element-plus'
 const serve = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API,
+  baseURL: apis.baseUrl,
   timeout: 5000,
 })
 

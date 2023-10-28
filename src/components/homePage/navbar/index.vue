@@ -88,8 +88,6 @@ window.addEventListener('scroll', function() {
 @import url("@/styles/fonts.scss");
 
 .navbar {
-  box-sizing: border-box;
-  width: 100%;
   height: 168px;
   display: flex;
   align-items: center;
@@ -102,7 +100,6 @@ window.addEventListener('scroll', function() {
   // logo
   .logo {
     display: flex;
-    width: 240px;
     height: 76px;
     margin-left: 77px;
     justify-content: space-between;
@@ -128,10 +125,9 @@ window.addEventListener('scroll', function() {
   // 导航
   .guide {
     display: flex;
+    flex: 1;
     width: 988px;
     height: 34px;
-    margin-left: 201px;
-    margin-right: 88px;
     justify-content: space-around;
     line-height: 34px;
     /** 文本1 */

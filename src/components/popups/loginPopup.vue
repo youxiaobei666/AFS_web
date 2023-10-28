@@ -78,7 +78,7 @@ const toRegister = () => {
   mix-blend-mode: multiply;
   opacity: 0.85;
   border-radius: 45px;
-  background-color: #400944;
+  background-color: #604130;
   //   logo 和文字部分
   .logo-text {
     display: flex;
@@ -111,7 +111,6 @@ const toRegister = () => {
 
   //   中间表单部分
   .form {
-
     width: 80%;
     //height: 216px;
     font-size: 15px;
@@ -128,7 +127,7 @@ const toRegister = () => {
       //   两个图标
       .avatar {
         position: absolute;
-        top: 20px;
+        top: 24px;
         left: 15px;
         width: 13px;
         height: 13px;
@@ -136,7 +135,7 @@ const toRegister = () => {
 
       .lock {
         position: absolute;
-        top: 100px;
+        top: 105px;
         left: 15px;
         width: 13px;
         height: 13px;
@@ -200,13 +199,18 @@ const toRegister = () => {
   .btns {
     justify-content: center;
     display: flex;
+    align-items: center;
     width: 80%;
-    height: 38px;
+    height: 48px;
     margin: 0 auto;
     gap: 20px;
 
     .login-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 40%;
+      height: 80%;
       border-radius: 9999px;
       background: url(https://img.js.design/assets/img/64804da398bd569d2aac9331.png);
       background-size: cover;

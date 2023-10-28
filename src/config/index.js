@@ -1,9 +1,9 @@
 const config = {
   development: {
-    baseUrl: '/api',
+    baseUrl: 'http://127.0.0.1:3001/',
   },
   production: {
-    baseUrl: 'http:/localhost:3001',
+    baseUrl: 'http://youxiaobei.top:3001/',
   },
 };
 

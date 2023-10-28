@@ -11,9 +11,6 @@
 /** 按钮 */
 .know-more-btn {
   z-index: 999;
-  position: absolute;
-  left: 202px;
-  top: 1040px;
   display: flex;
   align-items: center;
   justify-content: center;

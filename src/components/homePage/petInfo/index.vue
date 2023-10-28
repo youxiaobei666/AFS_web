@@ -1,17 +1,6 @@
 <template>
-  <!-- 下半部分大模块 -->
   <div class="pet-infomation">
-    <!-- 左右箭头 -->
-    <div class="icons-point">
-      <div class="tow-box">
-        <img src="@/assets/icons/icon-point-left.png" alt="" />
-      </div>
-      <div class="tow-box">
-        <img src="@/assets/icons/icon-point-right.png" alt="" />
-      </div>
-    </div>
-    <!-- 社交账号图标 -->
-    <icons class="icons"></icons>
+
     <!-- 小猫图片和文字 -->
     <div class="cat-and-text-1">
       <catIconText></catIconText>
@@ -23,65 +12,65 @@
       <petInfoCard class="pet-info-card"></petInfoCard>
     </div>
     <!-- 周刊的大模块 -->
-    <div class="pet-news">
-      <!-- 小猫图片和文字 -->
-      <div class="cat-and-text-2">
-        <catIconText></catIconText>
-      </div>
-      <!-- 展示新闻 -->
-      <div class="show-area">
-        <!-- 大图 -->
-        <div class="box-1">
-          <img
-            src="https://img.js.design/assets/img/64835004b64fef683a064e1d.jpg#33c431c9f0ed527c554ac95b4e1cba72"
-          />
-          <div class="text">
-            1.重磅！世界宠物保护组织近日在尼加拉瓜进行宠物卫生援助
-          </div>
-        </div>
-        <!-- 小图 -->
-        <div class="box-2">
-          <img
-            src="https://img.js.design/assets/img/6483520f46a287ff400a236e.jpg#2362e3333619a618a284a7d6c3dca32c"
-            alt=""
-          />
-          <div class="text">
-            2.重磅！联合国卫生组织颁布全球宠物卫...2023/8/12联合国卫生苦海到可楔上然勘查在是是桌上厚薄虹人勘查在人
-          </div>
-        </div>
-        <!-- 多图 -->
-        <div class="box-3">
-          <div class="box-3-flex">
-            <div class="img">
-              <img
-                src="https://img.js.design/assets/img/648353ddbfcc2e8f769a0d3d.jpg#8526e9b8f755cb88f563527e490a88cb"
-              />
-            </div>
-            <div class="text">3.据悉，上海宠物保护组织 协助警方..</div>
-          </div>
-          <div class="box-3-flex">
-            <div class="img">
-              <img
-                src="https://img.js.design/assets/img/648353f3f5fe553edc8b7f4f.jpg#22fb96dd24fb8e7002cc5bfa573bb363"
-              />
-            </div>
-            <div class="text">3.据悉，上海宠物保护组织 协助警方..</div>
-          </div>
-          <div class="box-3-flex">
-            <div class="img">
-              <img
-                src="https://img.js.design/assets/img/648353e581f270b4b02fedc9.jpg#d663ae7de55055e98cbc777c03730bec"
-              />
-            </div>
-            <div class="text">3.据悉，上海宠物保护组织 协助警方..</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- footer -->
-    <div class="footer">
-      <bottom></bottom>
-    </div>
+<!--    <div class="pet-news">-->
+<!--      &lt;!&ndash; 小猫图片和文字 &ndash;&gt;-->
+<!--      <div class="cat-and-text-2">-->
+<!--        <catIconText></catIconText>-->
+<!--      </div>-->
+<!--      &lt;!&ndash; 展示新闻 &ndash;&gt;-->
+<!--      <div class="show-area">-->
+<!--        &lt;!&ndash; 大图 &ndash;&gt;-->
+<!--        <div class="box-1">-->
+<!--          <img-->
+<!--            src="https://img.js.design/assets/img/64835004b64fef683a064e1d.jpg#33c431c9f0ed527c554ac95b4e1cba72"-->
+<!--          />-->
+<!--          <div class="text">-->
+<!--            1.重磅！世界宠物保护组织近日在尼加拉瓜进行宠物卫生援助-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 小图 &ndash;&gt;-->
+<!--        <div class="box-2">-->
+<!--          <img-->
+<!--            src="https://img.js.design/assets/img/6483520f46a287ff400a236e.jpg#2362e3333619a618a284a7d6c3dca32c"-->
+<!--            alt=""-->
+<!--          />-->
+<!--          <div class="text">-->
+<!--            2.重磅！联合国卫生组织颁布全球宠物卫...2023/8/12联合国卫生苦海到可楔上然勘查在是是桌上厚薄虹人勘查在人-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; 多图 &ndash;&gt;-->
+<!--        <div class="box-3">-->
+<!--          <div class="box-3-flex">-->
+<!--            <div class="img">-->
+<!--              <img-->
+<!--                src="https://img.js.design/assets/img/648353ddbfcc2e8f769a0d3d.jpg#8526e9b8f755cb88f563527e490a88cb"-->
+<!--              />-->
+<!--            </div>-->
+<!--            <div class="text">3.据悉，上海宠物保护组织 协助警方..</div>-->
+<!--          </div>-->
+<!--          <div class="box-3-flex">-->
+<!--            <div class="img">-->
+<!--              <img-->
+<!--                src="https://img.js.design/assets/img/648353f3f5fe553edc8b7f4f.jpg#22fb96dd24fb8e7002cc5bfa573bb363"-->
+<!--              />-->
+<!--            </div>-->
+<!--            <div class="text">3.据悉，上海宠物保护组织 协助警方..</div>-->
+<!--          </div>-->
+<!--          <div class="box-3-flex">-->
+<!--            <div class="img">-->
+<!--              <img-->
+<!--                src="https://img.js.design/assets/img/648353e581f270b4b02fedc9.jpg#d663ae7de55055e98cbc777c03730bec"-->
+<!--              />-->
+<!--            </div>-->
+<!--            <div class="text">3.据悉，上海宠物保护组织 协助警方..</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; footer &ndash;&gt;-->
+<!--    <div class="footer">-->
+<!--      <bottom></bottom>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -95,11 +84,9 @@ import bottom from "@/components/bottom/bottom";
 <style lang="scss" scoped>
 .pet-infomation {
   position: relative;
-  top: 380px;
-  padding-top: 400px;
-  width: 1920px;
-  height: 2000px;
-  background: url("https://img.js.design/assets/img/64804a60186c33b82d616956.png#4cb248539a56a3ef115c595e84f8b4ab");
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
 
   // 指针图标
   .icons-point {
@@ -139,19 +126,14 @@ import bottom from "@/components/bottom/bottom";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute;
-    left: 127px;
-    top: 950px;
-    width: 1672px;
-    height: 408px;
+    width: 100%;
+    gap: 50px;
+
   }
 
   // 左上角的图标
   .cat-and-text-1 {
-    position: absolute;
-    height: 50px;
-    top: 800px;
-    left: 126px;
+
   }
   // 周刊
   .pet-news {
