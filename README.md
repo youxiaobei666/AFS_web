@@ -23,6 +23,9 @@
 
 - 搜索功能不够完善,人性
 
+- 缩放页面，直接报错（ResizeObserver loop completed with undelivered notifications.
+  at eval (webpack-internal:///./node_modules/webpack-dev-server/client/overlay.js:296:58)）
+
 ## 主要模块
 
 前台页面 | 个人中心 | 消息中心 | 用户设置 | 权限管理 | 动物中心
