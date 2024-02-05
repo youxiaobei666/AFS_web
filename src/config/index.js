@@ -5,6 +5,6 @@ const config = {
   production: {
     baseUrl: 'http://youxiaobei.top:3001/',
   },
-};
+}
 
-export default config[process.env.NODE_ENV || 'development'];
+export default config[process.env.NODE_ENV || 'development']

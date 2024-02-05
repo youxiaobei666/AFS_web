@@ -1,10 +1,6 @@
 <template>
   <!-- tableall -->
-  <el-table
-    :data="newUserData"
-    stripe
-    :scrollbar-always-on="true"
-  >
+  <el-table :data="newUserData" stripe :scrollbar-always-on="true">
     <el-table-column :label="$t('msg.menu_id')">
       <template #default="scope">
         <div style="display: flex; align-items: center">
@@ -105,15 +101,22 @@
       </template>
     </el-table-column>
   </el-table>
-  <div style='display:flex; width: 100%; justify-content: flex-end; margin-top: 10px'>
+  <div
+    style="
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 10px;
+    "
+  >
     <el-pagination
-      v-model:current-page='pageConfig.page'
-      v-model:page-size='pageConfig.size'
-      :page-sizes='[10, 20, 30, 50]'
-      layout='total,sizes , prev, pager, next, jumper'
-      :total='userInfoTotal'
-      @size-change='handleSizeChange'
-      @current-change='handleCurrentChange'
+      v-model:current-page="pageConfig.page"
+      v-model:page-size="pageConfig.size"
+      :page-sizes="[10, 20, 30, 50]"
+      layout="total,sizes , prev, pager, next, jumper"
+      :total="userInfoTotal"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
     />
   </div>
   <!-- 图片框 -->
@@ -149,7 +152,7 @@
       <!-- 头像上传 -->
       <el-form-item :label="$t('msg.menu_img')">
         <el-upload
-          action="/upload"
+          :action="config.baseUrl + 'upload'"
           :file-list="fileList"
           name="file"
           :on-success="handleSuccess"
@@ -159,7 +162,7 @@
           :limit="1"
           :headers="getAuthHeaders()"
         >
-          <el-icon  class="avatar-uploader-icon">
+          <el-icon class="avatar-uploader-icon">
             <Plus />
           </el-icon>
         </el-upload>
@@ -212,6 +215,7 @@ import { hobbyMap, TOKEN } from '@/constant/index'
 import formatRegion from '@/utils/formatRegion'
 import regionDatas from '@/constant/regionData'
 import { deleteUser, editUserInfo, getAllUserInfo } from '@/api/sys'
+import config from '@/config'
 
 // 表格数据源
 const userAllInfo = ref([])
@@ -237,7 +241,7 @@ const hobbyCheckboxes = ref()
 // 全局分页配置，当配置被修改，使用 watch 监听变化从而修改表格数据源
 const pageConfig = reactive({
   page: 1, // 默认第一页
-  size: 10 // 默认十条数据
+  size: 10, // 默认十条数据
 })
 // 分页事件
 const handleCurrentChange = (val) => {
@@ -247,20 +251,23 @@ const handleSizeChange = (val) => {
   pageConfig.size = val
 }
 const newUserData = ref()
-getAllUserInfo().then(res => {
+getAllUserInfo().then((res) => {
   console.log(res)
-  const {page, size } = pageConfig
+  const { page, size } = pageConfig
   userInfoTotal.value = res.total
-  newUserData.value  =res.userInfo.slice((page-1)*size, page*size)
+  newUserData.value = res.userInfo.slice((page - 1) * size, page * size)
   userAllInfo.value = res.userInfo
 })
 
-
 // 当分页配置改变时，修改数据源
 watch(pageConfig, (newVal, oldVal) => {
-  const {page, size} = newVal
-  newUserData.value = userAllInfo.value.slice((page-1)*size,page*size)
-,{immediate: true}})
+  const { page, size } = newVal
+  ;(newUserData.value = userAllInfo.value.slice(
+    (page - 1) * size,
+    page * size
+  )),
+    { immediate: true }
+})
 // 图片显示事件
 const handleShowBigImg = (index, row) => {
   imgVisible.value = true
@@ -273,9 +280,7 @@ const handleEdit = (index, row) => {
   toBeEditId.value = row.id
 }
 const handleDelete = (index, row) => {
-  deleteUser(row.id).then(res => {
-
-  })
+  deleteUser(row.id).then((res) => {})
   editVisible.value = false
 }
 
@@ -310,9 +315,7 @@ const handleHobbyChange = (value) => {
 const handleConfirmEdit = () => {
   editForm.id = toBeEditId.value
   console.log(editForm)
-  editUserInfo(editForm).then((res) => {
-
-  })
+  editUserInfo(editForm).then((res) => {})
   editVisible.value = false
 }
 </script>
