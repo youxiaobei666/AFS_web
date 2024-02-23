@@ -11,8 +11,8 @@ export const userManageRoutes = {
   name: 'userManage',
   component: layout,
   meta: {
-    title: "user",
-    icon: "user",
+    title: 'user',
+    icon: 'user',
   },
   props: {
     default: false,
@@ -23,8 +23,9 @@ export const userManageRoutes = {
       component: () => import('@/views/user-manage'),
       meta: {
         title: 'userManage',
-        icon: 'userManage'
+        icon: 'userManage',
       },
-      children: []
-    }]
+      children: [],
+    },
+  ],
 }

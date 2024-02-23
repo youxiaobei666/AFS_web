@@ -11,8 +11,8 @@ export const authManageRoutes = {
   name: 'authManage',
   component: layout,
   meta: {
-    title: "auth",
-    icon: "permissionList",
+    title: 'auth',
+    icon: 'permissionList',
   },
   props: {
     default: false,
@@ -23,8 +23,9 @@ export const authManageRoutes = {
       component: () => import('@/views/auth-assign'),
       meta: {
         title: 'authAssign',
-        icon: 'authAssign'
+        icon: 'authAssign',
       },
-      children: []
-    }]
+      children: [],
+    },
+  ],
 }

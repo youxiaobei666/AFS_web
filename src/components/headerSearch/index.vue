@@ -61,41 +61,43 @@ const onShowClick = () => {
 // ])
 
 let searchPool = computed(() => {
-  return store.getters.language === 'en' ? [
-    {
-      path: '/user',
-      title: ['user']
-    },
-    {
-      path: '/user/manage',
-      title: ['user', 'userManage']
-    },
-    {
-      path: '/auth',
-      title: ['auth']
-    },
-    {
-      path: '/auth/assign',
-      title: ['auth', 'authAssign']
-    }
-  ] : [
-    {
-      path: '/user',
-      title: ['用户']
-    },
-    {
-      path: '/user/manage',
-      title: ['用户', '用户管理']
-    },
-    {
-      path: '/auth',
-      title: ['权限']
-    },
-    {
-      path: '/auth/assign',
-      title: ['权限', '权限分配']
-    }
-  ]
+  return store.getters.language === 'en'
+    ? [
+        {
+          path: '/user',
+          title: ['user'],
+        },
+        {
+          path: '/user/manage',
+          title: ['user', 'userManage'],
+        },
+        {
+          path: '/auth',
+          title: ['auth'],
+        },
+        {
+          path: '/auth/assign',
+          title: ['auth', 'authAssign'],
+        },
+      ]
+    : [
+        {
+          path: '/user',
+          title: ['用户'],
+        },
+        {
+          path: '/user/manage',
+          title: ['用户', '用户管理'],
+        },
+        {
+          path: '/auth',
+          title: ['权限'],
+        },
+        {
+          path: '/auth/assign',
+          title: ['权限', '权限分配'],
+        },
+      ]
 })
 
 // 搜索库
@@ -110,7 +112,7 @@ let fuse = new Fuse(searchPool.value, {
   keys: [
     {
       name: 'title',
-      weight: 1
+      weight: 1,
     },
     // {
     //   name: 'path',

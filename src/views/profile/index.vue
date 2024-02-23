@@ -3,11 +3,11 @@
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>个人信息</span>
-        <el-button style="float: right;" @click="openEditDialog">编辑</el-button>
+        <el-button style="float: right" @click="openEditDialog">编辑</el-button>
       </div>
       <el-form :model="form" label-width="120px">
         <el-form-item label="用户名">
-          <el-input v-model="form.username"  disabled></el-input>
+          <el-input v-model="form.username" disabled></el-input>
         </el-form-item>
         <el-form-item label="电子邮件">
           <el-input v-model="form.email" disabled></el-input>
@@ -36,8 +36,14 @@
             <el-input v-model="editForm.city"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-upload action="/upload" list-type="picture-card" :on-success="handleAvatarSuccess" :before-upload="handleBeforeUpload" :show-file-list="false">
-              <img v-if="editForm.img" :src="editForm.img" class="avatar">
+            <el-upload
+              action="/upload"
+              list-type="picture-card"
+              :on-success="handleAvatarSuccess"
+              :before-upload="handleBeforeUpload"
+              :show-file-list="false"
+            >
+              <img v-if="editForm.img" :src="editForm.img" class="avatar" />
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
             </el-upload>
           </el-form-item>
@@ -58,15 +64,15 @@ import { getItem } from '@/utils/storage'
 import { ID } from '@/constant'
 
 let form = reactive({})
-  let editForm = reactive({})
-  let editDialogVisible = ref(false)
+let editForm = reactive({})
+let editDialogVisible = ref(false)
 
 onMounted(async () => {
   const res = await getUserInfo({ id: getItem(ID) })
-  for(let key in res.userInfo){
+  for (let key in res.userInfo) {
     form[key] = res.userInfo[key]
   }
-  Object.assign(editForm, res.userInfo);
+  Object.assign(editForm, res.userInfo)
 })
 
 const openEditDialog = () => {
@@ -83,7 +89,7 @@ const handleConfirmEdit = async () => {
   }
 }
 
-const handleAvatarSuccess = res => {
+const handleAvatarSuccess = (res) => {
   editForm.img = res.url
 }
 
@@ -100,7 +106,7 @@ const getAuthHeaders = () => {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .container {
   height: 100%;
   display: flex;

@@ -95,38 +95,38 @@
 </template>
 
 <script setup>
-import store from "@/store";
-import { ref, reactive } from "vue";
+import store from '@/store'
+import { ref, reactive } from 'vue'
 
 // 用户数据
 const userInfo_Register = reactive({
-  username: "宠友友",
-  password: "123456",
-  user_avatar: "http://www.youxiaobei.top:1227/images/1 .png",
-  user_realname: "张三",
-  user_gender: "匿名友友",
-  user_hobby: "",
-  user_phone: "17718473047",
-  user_address: "",
-});
+  username: '宠友友',
+  password: '123456',
+  user_avatar: 'http://www.youxiaobei.top:1227/images/1 .png',
+  user_realname: '张三',
+  user_gender: '匿名友友',
+  user_hobby: '',
+  user_phone: '17718473047',
+  user_address: '',
+})
 
-const box_style1 = ref("");
-const box_style2 = ref("");
+const box_style1 = ref('')
+const box_style2 = ref('')
 // 用户信息
 const userInfo = ref({
-  username: "admin",
-  password: "123456",
-  user_phone: "17718473047",
-});
+  username: 'admin',
+  password: '123456',
+  user_phone: '17718473047',
+})
 // 下一步事件
 const HandleNext = () => {
-  box_style1.value = "left: -400px; opacity: 0; transition: ease 1s;";
-  box_style2.value = "left: 700px; opacity: 0.85; transition: ease 1s;";
-};
+  box_style1.value = 'left: -400px; opacity: 0; transition: ease 1s;'
+  box_style2.value = 'left: 700px; opacity: 0.85; transition: ease 1s;'
+}
 // 触发注册事件
 const HandleRegister = () => {
-  store.dispatch("register", userInfo_Register);
-};
+  store.dispatch('register', userInfo_Register)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -245,7 +245,7 @@ const HandleRegister = () => {
     width: 116px;
     height: 38px;
     border-radius: 50px;
-    background: url("@/assets/linnerBg1.png");
+    background: url('@/assets/linnerBg1.png');
     background-size: cover;
     text-align: center;
     padding-top: 10px;
@@ -395,7 +395,7 @@ const HandleRegister = () => {
     width: 116px;
     height: 38px;
     border-radius: 50px;
-    background: url("@/assets/linnerBg1.png");
+    background: url('@/assets/linnerBg1.png');
     background-size: cover;
     text-align: center;
     padding-top: 10px;

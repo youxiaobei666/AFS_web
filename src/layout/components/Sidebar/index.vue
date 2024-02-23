@@ -3,7 +3,7 @@
     <div class="logo-container">
       <el-avatar
         shape="square"
-        src='https://picx.zhimg.com/80/v2-06fa98e9fb5a71b77c6e956a71f05b4f_qhd.jpg'
+        src="https://picx.zhimg.com/80/v2-06fa98e9fb5a71b77c6e956a71f05b4f_qhd.jpg"
         :size="logoHeight"
       />
       <h1 class="logo-title" v-if="$store.getters.sidebarOpened">
@@ -11,7 +11,7 @@
         {{ $t('msg.menu_system_menu') }}
       </h1>
     </div>
-    <sidebarMenu :routes='routerList'></sidebarMenu>
+    <sidebarMenu :routes="routerList"></sidebarMenu>
   </div>
 </template>
 
@@ -27,7 +27,6 @@ const formatStore = store.getters.routerList.filter((i, index) => {
   return i.name
 })
 const routerList = ref(formatStore)
-
 </script>
 
 <style lang="scss" scoped>

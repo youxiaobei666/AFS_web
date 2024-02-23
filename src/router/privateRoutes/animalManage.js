@@ -11,8 +11,8 @@ export const animalManageRoutes = {
   name: 'animalManage',
   component: layout,
   meta: {
-    title: "animal",
-    icon: "animal",
+    title: 'animal',
+    icon: 'animal',
   },
   props: {
     default: false,
@@ -23,8 +23,9 @@ export const animalManageRoutes = {
       component: () => import('@/views/animal-manage'),
       meta: {
         title: 'animalManage',
-        icon: 'animal'
+        icon: 'animal',
       },
-      children: []
-    }]
+      children: [],
+    },
+  ],
 }

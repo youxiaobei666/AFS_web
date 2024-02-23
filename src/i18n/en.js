@@ -127,7 +127,7 @@ const EN = {
     guide: 'Function Guide',
     home: 'Home',
     logout: 'Log out',
-    front: 'back to front'
+    front: 'back to front',
   },
 }
 

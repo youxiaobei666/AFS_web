@@ -9,6 +9,4 @@
 import MessageList from '@/components/MessageList'
 </script>
 
-<style lang='scss' scoped>
-
-</style>
+<style lang="scss" scoped></style>

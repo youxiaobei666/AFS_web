@@ -1,44 +1,43 @@
 <template>
-  <div class='login-popup-container'>
+  <div class="login-popup-container">
     <!-- logo 部分 -->
-    <div class='logo-text'>
-      <div class='logo'>
-        <img class='img' src='@/assets/logo.png' alt='' />
+    <div class="logo-text">
+      <div class="logo">
+        <img class="img" src="@/assets/logo.png" alt="" />
       </div>
-      <div class='text'>欢迎登录</div>
+      <div class="text">欢迎登录</div>
     </div>
     <!-- 表单部分 -->
-    <div class='form'>
+    <div class="form">
       <!-- 输入框 -->
-      <div class='input-form'>
-        <img class='avatar' src='@/assets/icons/avatar.png' alt='' />
-        <img class='lock' src='@/assets/icons/lock.png' alt='' />
-        <input class='in-username' v-model='userInfo.username' type='text' />
+      <div class="input-form">
+        <img class="avatar" src="@/assets/icons/avatar.png" alt="" />
+        <img class="lock" src="@/assets/icons/lock.png" alt="" />
+        <input class="in-username" v-model="userInfo.username" type="text" />
         <input
-          class='in-password'
-          v-model='userInfo.password'
-          type='password'
+          class="in-password"
+          v-model="userInfo.password"
+          type="password"
         />
       </div>
-
     </div>
     <!-- 记住密码，调整登录 -->
-    <div class='rem-register'>
-      <input class='remember' type='checkbox' />
-      <div class='text-re'>记住密码</div>
+    <div class="rem-register">
+      <input class="remember" type="checkbox" />
+      <div class="text-re">记住密码</div>
       <!-- 跳转注册链接 -->
-      <div @click='toRegister' class='to-register'>立即注册</div>
+      <div @click="toRegister" class="to-register">立即注册</div>
     </div>
     <!-- 立即登录按钮 -->
-    <div class='btns'>
-      <div @click='HandleLogin' class='login-btn'>立即登录</div>
-      <div @click='loginBackend' class='login-btn'>登录后台</div>
+    <div class="btns">
+      <div @click="HandleLogin" class="login-btn">立即登录</div>
+      <div @click="loginBackend" class="login-btn">登录后台</div>
     </div>
     <!-- 隐私策略 -->
-    <div class='private-issue'>
+    <div class="private-issue">
       个人隐私策略所见？
       <br />
-      <div class='text-pri'>平台服务规则...</div>
+      <div class="text-pri">平台服务规则...</div>
     </div>
   </div>
 </template>
@@ -50,7 +49,7 @@ import router from '@/router'
 // 用户信息
 const userInfo = ref({
   username: '宠友友',
-  password: '123456'
+  password: '123456',
 })
 // 登录事件
 const HandleLogin = () => {
@@ -65,7 +64,7 @@ const toRegister = () => {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 // 弹出层样式
 .login-popup-container {
   display: flex;
@@ -217,14 +216,13 @@ const toRegister = () => {
       text-align: center;
       font-size: 20px;
       color: linear-gradient(
-          180deg,
-          rgba(64, 64, 64, 1) 0%,
-          rgba(64, 64, 64, 0) 100%
+        180deg,
+        rgba(64, 64, 64, 1) 0%,
+        rgba(64, 64, 64, 0) 100%
       );
       cursor: pointer;
     }
   }
-
 
   //   隐私所见
   .private-issue {

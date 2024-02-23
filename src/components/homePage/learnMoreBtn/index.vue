@@ -28,7 +28,7 @@
     letter-spacing: 10px;
     line-height: 75px;
     color: rgba(59, 59, 59, 1);
-    font-family: "SourceHanSansCN-VF-2";
+    font-family: 'SourceHanSansCN-VF-2';
     transition: ease 0.5s;
   }
   .text:hover {

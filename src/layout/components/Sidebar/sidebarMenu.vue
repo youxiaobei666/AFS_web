@@ -38,5 +38,4 @@ const activeMenu = computed(() => {
 })
 </script>
 
-
 <style lang="scss"></style>

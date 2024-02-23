@@ -1,12 +1,12 @@
 <template>
   <!-- 创建一个相对专用于布局的容器，内含主要区域 -->
-  <el-container class='container'>
-    <div class='header'>
-      <div class=''></div>
-      <div class='title'>
-        你正在和 <span class='friend-name'>{{  friendInfo.username  }}</span> 聊天
+  <el-container class="container">
+    <div class="header">
+      <div class=""></div>
+      <div class="title">
+        你正在和 <span class="friend-name">{{ friendInfo.username }}</span> 聊天
       </div>
-      <div class=''></div>
+      <div class=""></div>
     </div>
     <el-main>
       <!-- 聊天区域 -->
@@ -18,16 +18,16 @@
             <!-- 卡片组件用于展示消息 -->
             <el-card class="message-card">
               <!-- 发送的消息在右侧显示 -->
-              <div v-if="msg.class === 'send'" class='right message'>
-                <img :src='getItem(AVATAR)' class='avatar right-avatar'>
-                <div class='text'>{{ msg.item.message }}</div>
-                <div class='time'>发送时间：{{msg.item.timestamp}}</div>
+              <div v-if="msg.class === 'send'" class="right message">
+                <img :src="getItem(AVATAR)" class="avatar right-avatar" />
+                <div class="text">{{ msg.item.message }}</div>
+                <div class="time">发送时间：{{ msg.item.timestamp }}</div>
               </div>
               <!-- 收到的消息在左侧显示 -->
-              <div v-if="msg.class === 'received'" class='left message'>
-                <img :src='friendInfo.img' class='avatar left-avatar'>
-                <div class='text'>{{ msg.item.message }}</div>
-                <div class='time'>回复时间：{{msg.item.timestamp}}</div>
+              <div v-if="msg.class === 'received'" class="left message">
+                <img :src="friendInfo.img" class="avatar left-avatar" />
+                <div class="text">{{ msg.item.message }}</div>
+                <div class="time">回复时间：{{ msg.item.timestamp }}</div>
               </div>
             </el-card>
           </div>
@@ -35,9 +35,17 @@
         <!-- 输入和发送消息区 -->
         <div class="input-area">
           <!-- 文本区域输入框，回车触发发送消息 -->
-          <el-input type="textarea" v-model="input" @keyup.enter.prevent="sendMessage" placeholder="输入消息..."></el-input>
+          <el-input
+            type="textarea"
+            v-model="input"
+            @keyup.enter.prevent="sendMessage"
+            placeholder="输入消息..."
+          ></el-input>
           <!-- 发送消息按钮 -->
-          <el-button type="success" @click="sendMessage"><el-icon><Position /></el-icon> <span class='text'>发送</span></el-button>
+          <el-button type="success" @click="sendMessage"
+            ><el-icon><Position /></el-icon>
+            <span class="text">发送</span></el-button
+          >
         </div>
       </div>
     </el-main>
@@ -50,19 +58,17 @@ import { getChatSessionId, getUserInfo } from '@/api/sys'
 import { getItem } from '@/utils/storage'
 import { AVATAR, ID } from '@/constant'
 
-
-let input = ref(''); // 输入的消息
-let messages = ref([]); // 消息列表
-let socket = null; // WebSocket 实例
+let input = ref('') // 输入的消息
+let messages = ref([]) // 消息列表
+let socket = null // WebSocket 实例
 
 const props = defineProps({
   friendId: {
     type: Number,
     required: false,
     default: 1,
-  }
+  },
 })
-
 
 const friendInfo = ref({})
 
@@ -74,30 +80,31 @@ onMounted(() => {
   // })
   // 获取聊天对象信息
   getUserInfo({
-    id: props.friendId
+    id: props.friendId,
   }).then((res) => {
     friendInfo.value = res.userInfo
   })
 
-  socket = new WebSocket(`ws://localhost:8091/ws?mineId=${getItem(ID)}&&targetId=${props.friendId}`);
+  socket = new WebSocket(
+    `ws://localhost:8091/ws?mineId=${getItem(ID)}&&targetId=${props.friendId}`
+  )
 
-  socket.addEventListener('message', async event => {
-    let data = event.data;
+  socket.addEventListener('message', async (event) => {
+    let data = event.data
     try {
       // 尝试解析接收到的消息
-      data = JSON.parse(event.data);
-    } catch(error) {
-      console.error('Error parsing message', error);
-      return;
+      data = JSON.parse(event.data)
+    } catch (error) {
+      console.error('Error parsing message', error)
+      return
     }
     // 推送接收到的消息到消息列表
     messages.value.push({
       item: data,
-      class: 'received'
-    });
-  });
-});
-
+      class: 'received',
+    })
+  })
+})
 
 // 发送消息函数，将用户输入的消息送到服务器
 const sendMessage = () => {
@@ -105,23 +112,22 @@ const sendMessage = () => {
     messages.value.push({
       item: {
         message: input.value,
-        timestamp: new Date().toISOString().slice(0,10)
+        timestamp: new Date().toISOString().slice(0, 10),
       },
-      class: 'send'
-    });
+      class: 'send',
+    })
   }
   // 发送到后端
-  socket.send(input.value);
-  input.value = '';
-};
+  socket.send(input.value)
+  input.value = ''
+}
 
 // 组件卸载时关闭 WebSocket
 onUnmounted(() => {
   if (socket && socket.readyState === WebSocket.OPEN) {
-    socket.close();
+    socket.close()
   }
-});
-
+})
 </script>
 <style lang="scss" scoped>
 body {
@@ -131,7 +137,6 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-
 
   .header {
     display: flex;
@@ -145,7 +150,6 @@ body {
     border-radius: 9999px;
     color: #fff;
     .back-btn {
-
     }
     .title {
       .friend-name {
@@ -155,7 +159,6 @@ body {
         font-weight: 500;
       }
     }
-
   }
 
   .chat-container {
@@ -211,7 +214,8 @@ body {
           max-width: 60%;
           margin-left: auto;
 
-          .avatar { // 调整头像到右侧
+          .avatar {
+            // 调整头像到右侧
             margin-left: 10px;
           }
         }
@@ -224,7 +228,8 @@ body {
           padding: 10px;
           max-width: 60%;
 
-          .avatar { // 调整头像到左侧
+          .avatar {
+            // 调整头像到左侧
             margin-right: 10px;
           }
         }
@@ -238,5 +243,4 @@ body {
     border-radius: 50%;
   }
 }
-
 </style>

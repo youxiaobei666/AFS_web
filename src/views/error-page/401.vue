@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <el-button size='large' type='danger' @click="goBack">权限不足，点击返回</el-button>
+    <el-button size="large" type="danger" @click="goBack"
+      >权限不足，点击返回</el-button
+    >
   </div>
 </template>
 

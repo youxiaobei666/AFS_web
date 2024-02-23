@@ -31,7 +31,7 @@ export const hobbyMap = [
     label: '篮球',
     value: 4,
     id: 4,
-  }
+  },
 ]
 
 export const authChangeMap = [
@@ -49,7 +49,7 @@ export const authChangeMap = [
     label: '动物管理',
     value: 'animalManage',
     id: 3,
-  }
+  },
 ]
 
 export const commonMap = [
@@ -87,16 +87,16 @@ export const authMap = {
   userManage: {
     id: 1,
     name: 'userManage',
-    label: '用户管理'
+    label: '用户管理',
   },
   authManage: {
     id: 2,
     name: 'authManage',
-    label: '权限管理'
+    label: '权限管理',
   },
-  animalManage:{
+  animalManage: {
     id: 3,
     name: 'animalManage',
-    label: '动物管理'
-  }
+    label: '动物管理',
+  },
 }

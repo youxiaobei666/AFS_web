@@ -1,13 +1,13 @@
 const formatRegion = (data) => {
-  const { province, city, area } = data;
+  const { province, city, area } = data
 
   // 将城市添加到对应省份
   const provinceWithCities = province.map((prov) => {
     return {
       ...prov,
       children: city.filter((ct) => ct.parentId === prov.code),
-    };
-  });
+    }
+  })
 
   // 将区县添加到对应城市
   const options = provinceWithCities.map((prov) => {
@@ -15,8 +15,8 @@ const formatRegion = (data) => {
       return {
         ...ct,
         children: area.filter((ar) => ar.parentId === ct.code),
-      };
-    });
+      }
+    })
 
     return {
       value: prov.name,
@@ -29,10 +29,10 @@ const formatRegion = (data) => {
           label: ar.name,
         })),
       })),
-    };
-  });
+    }
+  })
 
-  return options;
+  return options
 }
 
 export default formatRegion

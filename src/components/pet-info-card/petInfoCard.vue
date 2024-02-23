@@ -3,7 +3,7 @@
     <!-- 图片 -->
     <div class="img-area">
       <img
-        class='img'
+        class="img"
         src="https://pica.zhimg.com/100/v2-6f310f6a988b30a7ad92e5ce51298a40_r.jpg"
         alt=""
       />
@@ -15,7 +15,7 @@
         <span>守护地球，和谐共存</span>
       </div>
       <div class="pointer">
-        <img class='img' src="@/assets/icons/icon-point-right.png" alt="" />
+        <img class="img" src="@/assets/icons/icon-point-right.png" alt="" />
       </div>
     </div>
     <!-- 评论区域 -->
@@ -43,7 +43,7 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-@import url("@/styles/fonts.scss");
+@import url('@/styles/fonts.scss');
 .container {
   position: relative;
   width: 25%;
@@ -69,11 +69,10 @@
     width: 92%;
     height: 78px;
 
-
     .title-text {
       width: 40%;
       height: 100%;
-      font-family: "SourceHanSansCN-VF-2";
+      font-family: 'SourceHanSansCN-VF-2';
       color: rgba(196, 196, 196, 1);
       font-size: 20px;
     }

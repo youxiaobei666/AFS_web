@@ -1,12 +1,12 @@
 <template>
-  <div class='navbar' id='navbar'>
+  <div class="navbar" id="navbar">
     <!-- logo -->
-    <div class='logo' @click='logoClick'>
-      <img class='img-logo' src='@/assets/logo.png' alt='logo丢失了' />
-      <img class='font-logo' src='@/assets/AFC.png' alt='文字丢失' />
+    <div class="logo" @click="logoClick">
+      <img class="img-logo" src="@/assets/logo.png" alt="logo丢失了" />
+      <img class="font-logo" src="@/assets/AFC.png" alt="文字丢失" />
     </div>
     <!-- 导航 -->
-    <div class='guide'>
+    <div class="guide">
       <div>我要领养</div>
       <div>发布领养</div>
       <div>宠友社区</div>
@@ -16,23 +16,23 @@
     </div>
     <!-- 用户操作模块 -->
     <div
-      @mouseenter='handleMouseenter'
-      @mouseleave='handleMouseleave'
-      class='user-module'
+      @mouseenter="handleMouseenter"
+      @mouseleave="handleMouseleave"
+      class="user-module"
     >
-      <div class='user_avatar'>
-        <img :src="userInfo.data ? userInfo.data.user_avatar : ''" alt='' />
+      <div class="user_avatar">
+        <img :src="userInfo.data ? userInfo.data.user_avatar : ''" alt="" />
       </div>
-      <div class='username'>
+      <div class="username">
         {{ userInfo.data ? userInfo.data.username : '未登录' }}
       </div>
-      <div class='control-bar'></div>
+      <div class="control-bar"></div>
     </div>
     <!-- 登录弹出框 -->
     <div
-      @mouseleave='handleMouseleave'
-      :style='styleHidden'
-      class='login-popup'
+      @mouseleave="handleMouseleave"
+      :style="styleHidden"
+      class="login-popup"
     >
       <loginPopup></loginPopup>
     </div>
@@ -73,7 +73,7 @@ const handleMouseenter = (e) => {
 /**
  * 滚动后加背景
  */
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   var element = document.getElementById('navbar')
   var scrollPosition = window.scrollY
   if (scrollPosition >= 250) {
@@ -84,8 +84,8 @@ window.addEventListener('scroll', function() {
 })
 </script>
 
-<style lang='scss' scoped>
-@import url("@/styles/fonts.scss");
+<style lang="scss" scoped>
+@import url('@/styles/fonts.scss');
 
 .navbar {
   height: 168px;
@@ -93,7 +93,7 @@ window.addEventListener('scroll', function() {
   align-items: center;
   position: sticky;
   top: 0;
-  font-family: "SourceHanSansCN-VF-2";
+  font-family: 'SourceHanSansCN-VF-2';
   z-index: 1001;
   transition: ease-in-out 0.5s;
 
@@ -153,8 +153,8 @@ window.addEventListener('scroll', function() {
     border-radius: 80px;
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 7px 16px rgba(0, 0, 0, 0.1),
-    0px 30px 30px rgba(0, 0, 0, 0.09), 0px 67px 40px rgba(0, 0, 0, 0.05),
-    0px 118px 47px rgba(0, 0, 0, 0.01), 0px 185px 52px rgba(0, 0, 0, 0);
+      0px 30px 30px rgba(0, 0, 0, 0.09), 0px 67px 40px rgba(0, 0, 0, 0.05),
+      0px 118px 47px rgba(0, 0, 0, 0.01), 0px 185px 52px rgba(0, 0, 0, 0);
     cursor: pointer;
 
     .user_avatar {

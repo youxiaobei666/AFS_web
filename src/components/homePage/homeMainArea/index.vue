@@ -2,8 +2,8 @@
   <!-- 大文字 -->
   <div class="main-show-text">
     <span class="font-1">宠友社</span><br /><span class="font-2"
-  >地球不只是人类的！</span
-  >
+      >地球不只是人类的！</span
+    >
   </div>
   <!-- 介绍 -->
   <div class="introduct-text">
@@ -18,7 +18,7 @@
     </span>
   </div>
   <!--     按钮-->
-  <learnMoreBtn class='learnBtn'></learnMoreBtn>
+  <learnMoreBtn class="learnBtn"></learnMoreBtn>
   <!-- 左右箭头 -->
   <div class="icons-point">
     <div class="tow-box">
@@ -33,15 +33,15 @@
 </template>
 
 <script setup>
-import icons from "@/components/icons";
+import icons from '@/components/icons'
 import learnMoreBtn from '@/components/homePage/learnMoreBtn'
-import petInfoCard from "@/components/pet-info-card/petInfoCard";
-import catIconText from "@/components/pet-info-card/catIconText";
-import bottom from "@/components/bottom/bottom";
+import petInfoCard from '@/components/pet-info-card/petInfoCard'
+import catIconText from '@/components/pet-info-card/catIconText'
+import bottom from '@/components/bottom/bottom'
 </script>
 
 <style lang="scss" scoped>
-@import url("@/styles/fonts.scss");
+@import url('@/styles/fonts.scss');
 /** 大标题 */
 .main-show-text {
   z-index: 1010;
@@ -61,13 +61,13 @@ import bottom from "@/components/bottom/bottom";
     /** 文本1 */
     line-height: 143px;
     color: rgba(255, 234, 176, 1);
-    font-family: "YouSheTitleRound";
+    font-family: 'YouSheTitleRound';
   }
   .font-2 {
     /** 文本2 */
     line-height: 116.6px;
     color: rgba(255, 255, 255, 1);
-    font-family: "PangMenZhengDaoBiaoTiTi";
+    font-family: 'PangMenZhengDaoBiaoTiTi';
   }
 }
 
@@ -82,12 +82,12 @@ import bottom from "@/components/bottom/bottom";
   font-weight: 400;
   letter-spacing: 0px;
   color: rgba(255, 255, 255, 1);
-  font-family: "SourceHanSansCN-VF-2";
+  font-family: 'SourceHanSansCN-VF-2';
   cursor: pointer;
   background: linear-gradient(
-      270deg,
-      rgba(158, 157, 157, 0.81) 0%,
-      rgba(31, 31, 31, 0.43) 100%
+    270deg,
+    rgba(158, 157, 157, 0.81) 0%,
+    rgba(31, 31, 31, 0.43) 100%
   );
   padding: 10px;
   .text-1 {
@@ -137,5 +137,4 @@ import bottom from "@/components/bottom/bottom";
   justify-content: space-around;
   align-items: center;
 }
-
 </style>

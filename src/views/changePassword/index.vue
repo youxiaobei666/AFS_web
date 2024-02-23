@@ -39,7 +39,7 @@
           class="forgotPass"
           type="primary"
           @click="handleToLogin_Pass"
-        >{{ $t('msg.goLogin') }}</el-link
+          >{{ $t('msg.goLogin') }}</el-link
         >
       </div>
       <!-- 确认注册按钮 -->
@@ -48,7 +48,7 @@
         class="loginBtn"
         style="padding-bottom: 10px"
         type="primary"
-      >{{ $t('msg.confirm_register') }}</el-button
+        >{{ $t('msg.confirm_register') }}</el-button
       >
     </div>
   </div>
@@ -151,8 +151,8 @@ const handleLogin = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/variables.module";
+@import '@/styles/variables.module';
 .switch {
-  color: $menuBg
+  color: $menuBg;
 }
 </style>

@@ -157,8 +157,8 @@ const handleLogin = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/styles/variables.module";
+@import '@/styles/variables.module';
 .switch {
-  color: $menuBg
+  color: $menuBg;
 }
 </style>
