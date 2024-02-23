@@ -10,6 +10,8 @@ export default {
   mutations: {
     /**
      * 设置主题色
+     * @param {*} state
+     * @param {string} newColor 新的颜色
      */
     setMainColor(state, newColor) {
       state.mainColor = newColor

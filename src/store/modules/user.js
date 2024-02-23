@@ -1,6 +1,6 @@
-import { login, register,getUserInfo, getAllUserInfo } from '@/api/sys'
+import { login, register, getUserInfo, getAllUserInfo } from '@/api/sys'
 import { setItem, getItem, removeAllItem } from '@/utils/storage'
-import { AVATAR, ID, PERMISSION_NAME_LIST, TOKEN, USER_NAME } from '@/constant' // 取得常量
+import { AVATAR, ID, PERMISSION_NAME_LIST, TOKEN } from '@/constant' // 取得常量
 import router from '@/router'
 import { setTimeStamp } from '@/utils/auth'
 import store from '@/store'
@@ -10,7 +10,7 @@ export default {
   state: () => ({
     token: getItem(TOKEN) || '',
     userInfo: {},
-    friendList: []
+    friendList: [],
   }),
   mutations: {
     setToken(state, token) {
@@ -24,31 +24,32 @@ export default {
       state.userAllInfo = userAllInfo
     },
     setUserInfoTotal(state, total) {
-      state.userTotal =  total
+      state.userTotal = total
     },
     setFriendList(state, list) {
       state.friendList = list
-    }
+    },
   },
   actions: {
-    login(context, userInfo) {
+    login(_, userInfo) {
       //  解构出用户名和密码
       const { username, password } = userInfo
-
       //  创建一个 promise
       return new Promise((resolve, reject) => {
-         login({
+        login({
           username,
           password,
         })
-          .then ((data) => {
+          .then((data) => {
             // 储存 token
             this.commit('user/setToken', data.token)
             setItem(PERMISSION_NAME_LIST, data.permissionsNameList)
-            store.dispatch('permission/filterRoutes', getItem(PERMISSION_NAME_LIST)) // 发起更新路由的操作
+            store.dispatch(
+              'permission/filterRoutes',
+              getItem(PERMISSION_NAME_LIST)
+            ) // 发起更新路由的操作
             // 保存登陆时间
             setTimeStamp()
-
             resolve()
           })
           .catch((err) => {
@@ -56,7 +57,7 @@ export default {
           })
       })
     },
-    register(context, userInfo) {
+    register(_, userInfo) {
       //  解构出用户名和密码
       const { username, password } = userInfo
       //  创建一个 promise
@@ -65,7 +66,7 @@ export default {
           username,
           password,
         })
-          .then((data) => {
+          .then(() => {
             resolve()
           })
           .catch((err) => {
@@ -73,7 +74,13 @@ export default {
           })
       })
     },
-    async getUserInfo(context, payload) {
+    /**
+     *
+     * @param {*} _
+     * @param {*} payload 用户名
+     * @returns
+     */
+    async getUserInfo(_, payload) {
       const res = await getUserInfo({ username: payload })
       setItem(AVATAR, res.userInfo.img)
       setItem(ID, res.userInfo.id)
@@ -81,8 +88,11 @@ export default {
       this.commit('user/setUserInfo', res.userInfo)
       return res
     },
-
-    async getAllUserInfo(context) {
+    /**
+     * 获取所有的用户
+     * @returns
+     */
+    async getAllUserInfo() {
       const res = await getAllUserInfo()
       this.commit('user/setAllUserInfo', res.userInfo)
       this.commit('user/setUserInfoTotal', res.total)

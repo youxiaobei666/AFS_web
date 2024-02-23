@@ -11,9 +11,9 @@ export default createStore({
   mutations: {},
   actions: {},
   modules: {
-    user,
-    app,
-    theme,
-    permission
+    user, // 用户相关
+    app, // 程序页面相关
+    theme, // 主题
+    permission, // 权限、路由
   },
 })

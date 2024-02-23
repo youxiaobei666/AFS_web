@@ -1,4 +1,3 @@
-import variables from '@/styles/variables.module.scss'
 import { MAIN_COLOR } from '@/constant'
 import { generateColors } from '@/utils/theme'
 import { getItem } from '@/utils/storage'
@@ -6,30 +5,22 @@ import { getItem } from '@/utils/storage'
 const getters = {
   token: (state) => state.user.token,
   /**
-   * @returns true 表示已存在用户信息
+   * 判断是否存在用户信息（返回 true 表示存在用户信息）
+   * @param {*} state
+   * @returns
    */
-  hasUserInfo: (state) => {
-    return JSON.stringify(state.user.userInfo) !== '{}'
-  },
-  userInfo: (state) => {
-    return state.user.userInfo
-  },
-  userAllInfo: (state) => {
-    return state.user.userAllInfo
-  },
-  userTotal: (state) => {
-    return state.user.userTotal
-  },
-  cssVar: (state) => {
-    return {
-      ...state.theme.variables,
-      ...generateColors(getItem(MAIN_COLOR)),
-    }
-  },
+  hasUserInfo: (state) => JSON.stringify(state.user.userInfo) !== '{}',
+  userInfo: (state) => state.user.userInfo,
+  userAllInfo: (state) => state.user.userAllInfo,
+  userTotal: (state) => state.user.userTotal,
+  cssVar: (state) => ({
+    ...state.theme.variables,
+    ...generateColors(getItem(MAIN_COLOR)),
+  }),
   language: (state) => state.app.language,
   sidebarOpened: (state) => state.app.sidebarOpened,
   mainColor: (state) => state.theme.mainColor,
   routerList: (state) => state.permission.routs,
-  getFriendsList: (state) => state.user.friendList
+  getFriendsList: (state) => state.user.friendList,
 }
 export default getters

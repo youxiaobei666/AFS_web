@@ -7,11 +7,16 @@ export default {
     language: getItem(LANG) || 'zh',
   }),
   mutations: {
+    /**
+     * 修改侧边栏的折叠状态
+     * @param {*} state
+     */
     triggerSidebarOpened(state) {
       state.sidebarOpened = !state.sidebarOpened
     },
     /**
-     * 设置国际化
+     * 设置语言
+     * @param {*} state
      */
     setLanguage(state, lang) {
       setItem(LANG, lang)
