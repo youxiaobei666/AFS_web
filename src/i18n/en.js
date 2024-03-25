@@ -102,6 +102,8 @@ const EN = {
     message: 'message',
     message_center: 'message center',
     friend_list: 'friend list',
+    community: 'community',
+    communityCenter: 'community center',
   },
   toast: {
     switchLangSuccess: 'Switch Language Success',

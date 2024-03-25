@@ -144,7 +144,7 @@ import bottom from '@/components/bottom/bottom'
     .show-area {
       display: flex;
       justify-content: space-between;
-      align-items: start;
+      align-items: flex-start;
       position: absolute;
       top: 1560px;
       left: 126px;

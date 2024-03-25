@@ -93,7 +93,6 @@ const ZH = {
     user: '用户设置',
     userManage: '用户管理',
     auth: '权限管理',
-
     authAssign: '权限分配',
     AFS: '宠友社',
     AFS_about: '关于我们',
@@ -104,6 +103,8 @@ const ZH = {
     message: '消息中心',
     message_center: '消息列表',
     friend_list: '好友列表',
+    community: '宠物社区',
+    communityCenter: '社区中心'
   },
   toast: {
     switchLangSuccess: '切换语言成功',

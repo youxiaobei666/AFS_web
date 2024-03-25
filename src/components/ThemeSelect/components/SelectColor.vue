@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 import { useStore } from 'vuex'
 import { generateNewStyle, writeNewStyle } from '@/utils/theme'
 const store = useStore()

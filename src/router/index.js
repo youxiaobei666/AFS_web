@@ -99,6 +99,30 @@ export const publicRoutes = [
       },
     ],
   },
+  // {
+  //   path: '/community',
+  //   redirect: '/community/communityCenter',
+  //   name: 'community',
+  //   component: layout,
+  //   meta: {
+  //     title: 'community',
+  //     icon: 'community',
+  //   },
+  //   props: {
+  //     default: false,
+  //   },
+  //   children: [
+  //     {
+  //       path: '/community/communityCenter',
+  //       component: () => import('@/views/CommunityCenter'),
+  //       meta: {
+  //         title: 'communityCenter',
+  //         icon: 'communityCenter',
+  //       },
+  //       children: [],
+  //     },
+  //   ],
+  // },
   {
     path: '/401',
     component: () => import('@/views/error-page/401.vue'),
